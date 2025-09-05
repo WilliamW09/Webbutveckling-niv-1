@@ -4,33 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV</title>
+    
+    <!-- Internal Styling-->
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+
+            .nav-header {
+                background-color: chartreuse;
+                padding: 16px;
+                display: flex;
+                justify-content: center;   
+            }
+   
+            .nav-ul {
+                list-style: none;
+                display: flex;
+                gap: 50px;
+                justify-content: space-between;
+            }
+  
+  </style>
 </head>
 <body>
-    <header>
+    <header class="nav-header">
+        <h1>info</h1>
         <nav>
-            <ul>
-                <li>Om mig</li>
+            <ul class="nav-ul">
+                <li><a href="#footer">Om mig</a></li>
                 <li>Utbildning</li>
                 <li>Arbetslivserfarenhet</li>
                 <li>Tech stack</li>
             </ul>
         </nav>
-    </header>
+    </header> 
 
     <main>
-        <section>
+        <section class="about-me">
             <h1>Om mig</h1>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis architecto ratione laudantium, amet debitis odio modi nesciunt minima explicabo dolorum sint, voluptatum natus eius. Facilis magnam voluptatibus fugiat ex rerum!</p>
         </section>
         
         <section>
-            <h2>Arbetslivserfarenhet</h2>
+            <h2>Utbildning</h2>
 
             <article>
                 <header>
                     <h4>Frontend utveckling</h4>
                     <p>
-                        <strong>Boberg</strong>
+                        <strong>Bobergsgymnasiet</strong>
                         <time datetime="2025-20">Augusti 2025</time>
                         <span>-</span>
                         <time datatime="2029-06">Juni 2029</time>
@@ -47,6 +71,56 @@
                 </ol>
             </article>
         </section>
+        <h2>Arbetslivserfarenhet</h2>
+
+        <article>
+            <header>
+                <h4>Frontend utveckling</h4>
+                <p>
+                    <strong>Bobergsgymnasiet</strong>
+                    <time datetime="2025-20">Augusti 2025</time>
+                    <span>-</span>
+                    <time datatime="2029-06">Juni 2029</time>
+                </p>
+            </header>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis, optio!</p>
+        
+            <ol>
+                <li>lorem ipsum dolor sit amet</li>
+                <li>lorem ipsum dolor sit amet</li>
+                <li>lorem ipsum dolor sit amet</li>
+                <li>lorem ipsum dolor sit amet</li>
+            </ol>
+        </article>
+    </section>
+    <h2>Tech stack</h2>
+
+    <article>
+        <header>
+            <h4>programmeringsspråk</h4>
+            <p>
+                <strong>Bobergsgymnasiet</strong>
+                <time datetime="2025-20">Augusti 2025</time>
+                <span>-</span>
+                <time datatime="2029-06">Juni 2029</time>
+            </p>
+        </header>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis, optio!</p>
+    
+        <ol>
+            <li>lorem ipsum dolor sit amet</li>
+            <li>lorem ipsum dolor sit amet</li>
+            <li>lorem ipsum dolor sit amet</li>
+            <li>lorem ipsum dolor sit amet</li>
+        </ol>
+    </article>
+</section>
     </main>
+    <footer id="footer">
+        <a href="tel:+46704020363">070712345678</a>
+        <a href="mailto:william.widenfalk@angeskol.se" >skicka email</a>
+    </footer>
 </body>
 </html>
