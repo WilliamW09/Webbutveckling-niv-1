@@ -1,6 +1,6 @@
-<!DOCTYPE html>
-<html lang="sv">
-<head>
+<!DOCTYPE html><!--talar om för webbläsaren vilken HTML verision det är. i detta fall HTML-->
+<html lang="sv"> <!--språkattributet. SV för svenska, En för engelska-->
+<head>  <!--Head innehåller informationen om själva hemsidan, syns dock inte på den-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV</title>
@@ -10,13 +10,14 @@
         *{
             padding: 0;
             margin: 0;
+            background-color: rgb(200, 255, 127);
         }
 
             .nav-header {
                 background-color: chartreuse;
                 padding: 16px;
                 display: flex;
-                justify-content: center;   
+                justify-content:center;
             }
    
             .nav-ul {
@@ -25,25 +26,46 @@
                 gap: 50px;
                 justify-content: space-between;
             }
-  
+
+         a{      
+            transition: all 1s ease-in-out;          
+            text-decoration: none;
+            color:rgb(182, 75, 26);
+            font-family:Arial, Helvetica, sans-serif
+        }
+        a:hover {
+            transition: all 1.5s ease-in-out;
+            color:aqua;
+            text-decoration: underline;
+            }
+
+            main {
+            background-color: burlywood;
+            display: flex;
+            flex-direction: column;
+            gap: 64px;
+            padding: 64px;
+            
+            }
+
   </style>
 </head>
-<body>
-    <header class="nav-header">
-        <h1>info</h1>
+<body> <!--Här i läggs all HTML-kod som syns på webbsidan-->
+    <header class="nav-header"> <!--Header - är en semanisk HTML-tagg som markerar huvudet/toppen av något - kan vara hela sidain eller en del av sidan--->
+        <h1>info</h1> <!--Semaniskt HTML för navigation-->
         <nav>
             <ul class="nav-ul">
-                <li><a href="#footer">Om mig</a></li>
-                <li>Utbildning</li>
-                <li>Arbetslivserfarenhet</li>
-                <li>Tech stack</li>
+                <li><a href="#about-me">Om mig</a></li>
+                <li><a href="#education">Utbildning</a></li>
+                <li><a href="#work">Arbetslivserfarenhet</a></li>
+                <li><a href="#techstack">Tech stack</a></li>
             </ul>
         </nav>
     </header> 
 
-    <main>
-        <section class="about-me">
-            <h1>Om mig</h1>
+    <main>  <!--Main - är en semanisk HTMML-tagg som används för allt huvudinnehåll på webbsidan-->
+        <section class="about-me" id="about-me">
+            <h2>Om mig</h2>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis architecto ratione laudantium, amet debitis odio modi nesciunt minima explicabo dolorum sint, voluptatum natus eius. Facilis magnam voluptatibus fugiat ex rerum!</p>
         </section>
         
@@ -55,9 +77,9 @@
                     <h4>Frontend utveckling</h4>
                     <p>
                         <strong>Bobergsgymnasiet</strong>
-                        <time datetime="2025-20">Augusti 2025</time>
+                        <time datetime="2025-08">Augusti 2025</time>
                         <span>-</span>
-                        <time datatime="2029-06">Juni 2029</time>
+                        <time datetime="2029-06">Juni 2029</time>
                     </p>
                 </header>
 
@@ -71,17 +93,19 @@
                 </ol>
             </article>
         </section>
-        <h2>Arbetslivserfarenhet</h2>
+      <section>
+      <h2>Arbetslivserfarenhet</h2>
 
+ 
         <article>
             <header>
                 <h4>Frontend utveckling</h4>
-                <p>
-                    <strong>Bobergsgymnasiet</strong>
-                    <time datetime="2025-20">Augusti 2025</time>
-                    <span>-</span>
-                    <time datatime="2029-06">Juni 2029</time>
-                </p>
+                     <p>
+                        <strong>Bobergsgymnasiet</strong>
+                        <time datetime="2025-08">Augusti 2025</time>
+                        <span>-</span>
+                        <time datetime="2029-06">Juni 2029</time>
+                     </p>
             </header>
 
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis, optio!</p>
@@ -94,16 +118,18 @@
             </ol>
         </article>
     </section>
+<section>
     <h2>Tech stack</h2>
 
+    <div>
     <article>
         <header>
             <h4>programmeringsspråk</h4>
             <p>
                 <strong>Bobergsgymnasiet</strong>
-                <time datetime="2025-20">Augusti 2025</time>
+                <time datetime="2025-08">Augusti 2025</time>
                 <span>-</span>
-                <time datatime="2029-06">Juni 2029</time>
+                <time datetime="2029-06">Juni 2029</time>
             </p>
         </header>
 
@@ -116,9 +142,10 @@
             <li>lorem ipsum dolor sit amet</li>
         </ol>
     </article>
+</div>
 </section>
     </main>
-    <footer id="footer">
+    <footer id="footer"> <!---->
         <a href="tel:+46704020363">070712345678</a>
         <a href="mailto:william.widenfalk@angeskol.se" >skicka email</a>
     </footer>
