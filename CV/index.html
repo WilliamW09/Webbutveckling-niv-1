@@ -1,4 +1,4 @@
-<!DOCTYPE html><!--talar om för webbläsaren vilken HTML verision det är. i detta fall HTML-->
+<!DOCTYPE html><!--talar om för webbläsaren vilken HTML verision det är. i detta fall HTML 5-->
 <html lang="sv"> <!--språkattributet. SV för svenska, En för engelska-->
 <head>  <!--Head innehåller informationen om själva hemsidan, syns dock inte på den-->
     <meta charset="UTF-8">
@@ -39,19 +39,62 @@
             text-decoration: underline;
             }
 
-            main {
+        main {
             background-color: burlywood;
             display: flex;
             flex-direction: column;
-            gap: 64px;
-            padding: 64px;
+            gap: 100px;
+            padding: 128px;
             
-            }
+         }
+
+         .about-me {
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            background-color: rgb(43, 255, 0);
+            padding: 10rem;         
+        }
+
+        .education {
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            background-color:blueviolet;
+            padding: 10rem;         
+        }
+
+        article {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            background-color:cornflowerblue;
+        }
+
+
+        .article-header {
+            background-color: red;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        ol {
+            list-style: none;
+            line-height: 24px;
+        }
+
+        .p-header {
+            display: flex;
+            grid-row: auto;
+        }
 
   </style>
 </head>
 <body> <!--Här i läggs all HTML-kod som syns på webbsidan-->
-    <header class="nav-header"> <!--Header - är en semanisk HTML-tagg som markerar huvudet/toppen av något - kan vara hela sidain eller en del av sidan--->
+    <header class="nav-header"> <!--Header - är en semanisk HTML-tagg som markerar huvudet/toppen av något - kan vara hela sidain eller en del av sidan-->
         <h1>info</h1> <!--Semaniskt HTML för navigation-->
         <nav>
             <ul class="nav-ul">
@@ -69,13 +112,13 @@
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis architecto ratione laudantium, amet debitis odio modi nesciunt minima explicabo dolorum sint, voluptatum natus eius. Facilis magnam voluptatibus fugiat ex rerum!</p>
         </section>
         
-        <section>
+        <section class="education" id="education">
             <h2>Utbildning</h2>
 
             <article>
-                <header>
+                <header class="article-header">
                     <h4>Frontend utveckling</h4>
-                    <p>
+                    <p class="p-header">
                         <strong>Bobergsgymnasiet</strong>
                         <time datetime="2025-08">Augusti 2025</time>
                         <span>-</span>
@@ -98,7 +141,7 @@
 
  
         <article>
-            <header>
+            <header class="article-header">
                 <h4>Frontend utveckling</h4>
                      <p>
                         <strong>Bobergsgymnasiet</strong>
@@ -123,7 +166,7 @@
 
     <div>
     <article>
-        <header>
+        <header class="article-header">
             <h4>programmeringsspråk</h4>
             <p>
                 <strong>Bobergsgymnasiet</strong>
