@@ -17,6 +17,8 @@ header {
 nav {
     position: relative;
     display: block;
+    background-color: aliceblue;
+    padding: 16px;
 }
 
 .hidden {
@@ -43,7 +45,7 @@ a {
     max-width: 32px;
 }
 
-.menu-close-btn {
+.menu-btn {
     width: 32px;
     position: absolute;
     top: 0;
