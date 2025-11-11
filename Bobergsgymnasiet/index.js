@@ -1,14 +1,17 @@
+const nav = document.querySelector("nav");
 const mobileNav = document.querySelector(".mobile-nav");
-const hamburgerBtn = document.querySelector("#menu-open")
+const hamburgerBtn = document.querySelector("#menu-open");
 
 const closeMenu = () => {
-    mobileNav.classList.add("hidden")
-       hamburgerBtn.classList.remove("hidden")
+    mobileNav.classList.add("hidden");
+    nav.classList.add("nav-closed");
+    hamburgerBtn.classList.remove("hidden");
 }
 const openMenu = () => {
-    hamburgerBtn.classList.add("hidden")
-    mobileNav.classList.remove("hidden")
-}
+    hamburgerBtn.classList.add("hidden");
+    nav.classList.remove("nav-closed");
+    mobileNav.classList.remove("hidden");
+};
 
 const menuCloseBtn = document
 .querySelector("#menu-close")
