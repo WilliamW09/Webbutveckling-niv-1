@@ -59,5 +59,26 @@ a {
     width: 32px;
     position: absolute;
     right: 0;
+}
 
+.news-grid {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.news-card {
+    border: 1px solid #323232;
+    padding: 8px;
+    border-radius: 12px;
+}
+
+.news-image {
+    max-width: 100%;
+    border-radius: 12px;
+}
+
+.news-title {
+    padding-top: 16px;
 }
