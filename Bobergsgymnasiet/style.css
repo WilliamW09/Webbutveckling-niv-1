@@ -16,6 +16,14 @@ nav {
     padding: 16px;
 }
 
+.nav-top {
+    background-color: aquamarine;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
 .nav-closed {
     display: flex;
     align-items: center;

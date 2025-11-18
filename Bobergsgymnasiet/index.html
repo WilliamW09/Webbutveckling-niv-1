@@ -16,8 +16,21 @@
 <body>
     <header>
         <nav class="nav-closed">
-            <a href="index.html">Bobergsgymnasiet</a>
+            <section class="nav-top relative">
+                <a href="index.html">Bobergsgymnasiet</a>
+                
+                <div class="">
+                    <button type="button" class="menu-btn hidden" id="menu-close">
+                        <img src="./img/xmark-solid-full.svg" /> 
+                    </button>
 
+                    <button type="button" class="menu-btn" id="menu-close"> 
+                        <img src="./img/bars-solid-full.svg">
+                    </button>
+                
+                </div>
+            </section>
+            
             <hr/>
 
             <section class="mobile-nav hidden">
@@ -34,16 +47,18 @@
                 </ul>
 
                 <button type="button" class="menu-btn top-0" id="menu-close"><img src="img/xmark-solid-full.svg"></button>
-           </section>
+            </section>
             <button type="button" class="menu-btn" id="menu-open"><img src="img/bars-solid-full.svg"></button>
+        
         </nav>
     </header>
     <main>
         <article>
             <p>Nyheter</p>
-            <hr />
+            <hr/>
 
             <div class="news-grid"></div>
+            
         </article>
     </main> 
 </body>
