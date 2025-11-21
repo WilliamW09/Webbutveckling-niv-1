@@ -63,9 +63,42 @@ const renderNews = () => {
             <p class="news-date">${news.date}</p>
             `;
 
+            card.addEventListener("click", () => {
+                window.location.href = `news.html?id=${news.id}`
+            });
+
             container.appendChild(card);
     });
 };
 
 renderNews();
 
+
+const renderNewsDetail = () => {
+    const container = document.querySelector(".news-content");
+    if (!container) return;
+
+    // Hämta ID från URL-parametern
+    const urlParams = new URLSearchParams(window.location.search)
+    const newsId = urlParams.get("id");
+
+    // Hitte rätt artikel
+    const newsItem = news.find((news) => nav.id === newsId)
+
+    if (newsItem) {
+        container.innerHtml = `
+        <img src="${newsItem.img}" alt="${newsItem.title}" class="news-image" />
+        <h1 class="news-title">${newsItem.title}<h1>
+        <p class="news-date"${newsItem.date}</p>
+        <p class="news-text"${newsItem.content}</p>
+        `;
+    } else {
+        container.innerHTML = `
+        <p>Artikeln kunde inte hittas</p>
+        `;
+    }
+};
+
+// Kör rätt funktion beroende på vilken sida vi är på 
+if (document.querySelector(".news-grid")) renderNews();
+if (document.querySelector(".news-content")) renderNewsDetail()
