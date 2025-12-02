@@ -3,6 +3,8 @@ const mobileNav = document.querySelector(".mobile-nav");
 const hamburgerBtn = document.querySelector("#menu-open");
  
 const closeBtn = document.querySelector("#menu-close");
+
+let shownEvent = 3;
  
 const news = [
   {
@@ -30,6 +32,73 @@ const news = [
       "Till vårdnadshavare för elever i årskurs 1 Välkomna till föräldramöte! Ni är varmt välkomna till skolan för att träffa rektor, mentorer och en del annan personal. Vi vill gärna ha ett nära samarbete med er så att vi tillsammans kan hjälpa eleverna att lyckas med sin skolgång. Det är första terminen för era ungdomar i en ny skolform som ställer annorlunda krav och har andra förutsättningar än tidigare. Tid:      Tisdag 9 september 2025, kl. 18.30. Plats:            Aulan, Bobergsgymnasiet (mitt i huset, en trappa upp från huvudentrén). Vi kommer först ses i helgrupp för en del allmän information. Efter det går ni vidare med mentorerna för ytterligare information och samtal om just er klass. Under kvällen kommer vi att tala om våra regler och rutiner, informera om programmen i gymnasieskolan och hur arbetet med elevernas lärande går till på Bobergsgymnasiet. Naturligtvis bjuder vi även på fika. Välkomna! / Jennie Stadling Wilsson, rektor Bobergsgymnasiet. Vi ber er fylla i nedanstående talong som lämnas till mentor senast torsdag 4/9. Tack!",
   },
 ];
+
+const event = [
+  {
+    day: "10",
+    month: "DEC",
+    title: "Nobeldag/UF-mässa",
+    weekday: "onsdag",
+    statusColor: "yellow",
+  },  
+  {
+    day: "10",
+    month: "DEC",
+    title: "Nobeldag/UF-mässa",
+    weekday: "onsdag",
+    statusColor: "yellow",
+  }, 
+  {
+    day: "20",
+    month: "DEC",
+    endDay: "20",
+    title: "Nobeldag/UF-mässa",
+    weekday: "onsdag",
+    statusColor: "yellow",
+  },
+  {
+    day: "10",
+    month: "DEC",
+    title: "Nobeldag/UF-mässa",
+    weekday: "onsdag",
+    statusColor: "yellow",
+  },
+  {
+    day: "10",
+    month: "DEC",
+    title: "Nobeldag/UF-mässa",
+    weekday: "onsdag",
+    statusColor: "yellow",
+  },
+  {
+    day: "10",
+    month: "DEC",
+    title: "Nobeldag/UF-mässa",
+    weekday: "onsdag",
+    statusColor: "yellow",
+  },
+  {
+    day: "10",
+    month: "DEC",
+    title: "Nobeldag/UF-mässa",
+    weekday: "onsdag",
+    statusColor: "yellow",
+  },
+  {
+    day: "10",
+    month: "DEC",
+    title: "Nobeldag/UF-mässa",
+    weekday: "onsdag",
+    statusColor: "yellow",
+  },
+  {
+    day: "10",
+    month: "DEC",
+    title: "Nobeldag/UF-mässa",
+    weekday: "onsdag",
+    statusColor: "yellow",
+  },
+]
  
 const closeMenu = () => {
   hamburgerBtn.classList.remove("hidden");
@@ -98,19 +167,43 @@ const renderNewsDetail = () => {
         `;
     }
 };
+
+const createElement = (event) => {
+  //Kolla om händelsen har ett slutdatum
+  if (event.endDay && event.endMonth) {
+     //Kolla om händelsen är inom samma månad
+     if (event.month === event.endMonth) {
+       // Om samma månad, visa samma månad
+       return`
+          <div class="event-date">
+            <h2>${event.day} - ${event.endDay}</h2>
+          </div> 
+          <div class="event-date">
+            <p>${event.month} - ${event.endmonth}</p>
+          </div> 
+        `;
+     } else {
+       return`
+          <div class="event-date">
+            <div class="date-container">
+              <h2>${event.day}
+            </div>
+            <div class="date-container">
+              <h2>${event.endDay}
+            </div>
+            
+           
+        `;
+     }
+
+  } else {
+    return `
+    
+    `;
+  }
+};
  
 // Kör rätt funktion beroende på vilken sida vi är på
 if (document.querySelector(".news-grid")) renderNews();
 if (document.querySelector(".news-content")) renderNewsDetail();
  
-function toggleText() {
-    const points = document.getElementById("points");
-    const moreText = document.getElementById("moreText");
-    const button = document.getElementById("textButton");
- 
-    const isHidden = moreText.style.display === "none";
- 
-    moreText.style.display = isHidden ? "inline" : "none";
-    points.style.display = isHidden ? "none" : "inline";
-    button.innerHTML = isHidden ? "Visa mindre" : "Visa fler";
- }
