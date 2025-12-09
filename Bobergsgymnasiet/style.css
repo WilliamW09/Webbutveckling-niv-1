@@ -112,13 +112,48 @@ a {
 .back-link:hover {
     text-decoration: underline;
 }
- 
-.container {
+
+/* Event-lisr */
+.event-article {
+  padding: 16px;
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
+  gap: 4px;
 }
- 
-span {
-  padding-bottom: 2rem;
+
+.event-list {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.event-card {
+  background-color: burlywood;
+}
+
+.date-wrapper {
+  padding: 16px;
+  background-color: aqua;
+  display: flex;
+  gap: 8px;
+}
+
+.event-date {
+  background-color: brown;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  color: #f2f2f2;
+  font-weight: 700;
+}
+
+.date-day {
+  padding: 8px;
+}
+
+.date-month {
+  padding: 8px;
+  border-radius: 0px 8px;
+  background-color: rgb(162, 67, 67);
 }
