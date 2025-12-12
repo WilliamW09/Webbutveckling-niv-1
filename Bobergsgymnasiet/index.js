@@ -1,23 +1,23 @@
 const nav = document.querySelector("nav");
 const mobileNav = document.querySelector(".mobile-nav");
 const hamburgerBtn = document.querySelector("#menu-open");
- 
+
 const closeBtn = document.querySelector("#menu-close");
 
-let shownEvent = 3;
- 
+let shownEvents = 3;
+
 const news = [
   {
     id: "1",
-    img: "./img/fff.webp",
+    img: "./img/boberg-föredragsdag.webp",
     title: "Föredrag 22/10",
     date: "16 oktober 2025",
     content:
-      "Niorna kommer och hälsar på och våra egna elever blir utan lektioner då bjuder vi in föreläsare som kommer och tar hand om dem istället! Åk1 och HSF2 börjar dagen med ett evenemang i Folkets Hus Ånge men kommer sedan upp och avslutar dagen med övriga. Åk3 och YRK2 är i Aulan och får träffa representanter från polisen, Näringslivskontoret, Rocco Oil, Campus Ånge/Komvux, Ålsta folkhögskola, socialkontoret och Kriminalvården. Vi hoppas på en spännande dag!",
+      "Niorna kommer och hälsar på och våra egna elever blir utan lektioner – då bjuder vi in föreläsare som kommer och tar hand om dem istället! Åk1 och HSF2 börjar dagen med ett evenemang i Folkets Hus Ånge men kommer sedan upp och avslutar dagen med övriga. Åk3 och YRK2 är i Aulan och får träffa representanter från polisen, Näringslivskontoret, Rocco Oil, Campus Ånge/Komvux, Ålsta folkhögskola, socialkontoret och Kriminalvården. Vi hoppas på en spännande dag!",
   },
   {
     id: "2",
-    img: "./img/saa.webp",
+    img: "./img/boberg-besöksdag-åk9.webp",
     title: "Åk 9 besöksdag",
     date: "5 oktober 2025",
     content:
@@ -25,7 +25,7 @@ const news = [
   },
   {
     id: "3",
-    img: "./img/aaa.webp",
+    img: "./img/boberg-föräldramöte.webp",
     title: "Föräldramöte åk 1 9/9",
     date: "2 september 2025",
     content:
@@ -33,25 +33,42 @@ const news = [
   },
 ];
 
-const event = [
+const events = [
   {
     day: "10",
     month: "DEC",
     title: "Nobeldag/UF-mässa",
     weekday: "onsdag",
     statusColor: "yellow",
-  },  
+  },
   {
-    day: "10",
+    day: "19",
     month: "DEC",
-    title: "Nobeldag/UF-mässa",
-    weekday: "onsdag",
-    statusColor: "yellow",
-  }, 
+    title: "Julavslutning",
+    weekday: "fredag",
+    statusColor: "green",
+  },
   {
     day: "20",
     month: "DEC",
-    endDay: "20",
+    endDay: "07",
+    endMonth: "JAN",
+    title: "Jullov",
+    weekday: "lördag",
+    statusColor: "red",
+  },
+  {
+    day: "15",
+    month: "JAN",
+    title: "Studiebesök åk2",
+    weekday: "onsdag",
+    statusColor: "yellow",
+  },
+  {
+    day: "28",
+    month: "JAN",
+    endDay: "30",
+    endMonth: "JAN",
     title: "Nobeldag/UF-mässa",
     weekday: "onsdag",
     statusColor: "yellow",
@@ -84,128 +101,116 @@ const event = [
     weekday: "onsdag",
     statusColor: "yellow",
   },
-  {
-    day: "10",
-    month: "DEC",
-    title: "Nobeldag/UF-mässa",
-    weekday: "onsdag",
-    statusColor: "yellow",
-  },
-  {
-    day: "10",
-    month: "DEC",
-    title: "Nobeldag/UF-mässa",
-    weekday: "onsdag",
-    statusColor: "yellow",
-  },
-]
- 
+];
+
 const closeMenu = () => {
   hamburgerBtn.classList.remove("hidden");
   closeBtn.classList.add("hidden");
- 
+
   mobileNav.classList.add("hidden");
 };
- 
+
 const openMenu = () => {
   hamburgerBtn.classList.add("hidden");
   closeBtn.classList.remove("hidden");
- 
+
   mobileNav.classList.remove("hidden");
 };
- 
+
 const menuCloseBtn = document
   .querySelector("#menu-close")
   .addEventListener("click", closeMenu);
- 
+
 const menuOpenBtn = document
   .querySelector("#menu-open")
   .addEventListener("click", openMenu);
- 
+
 const renderNews = () => {
   const container = document.querySelector(".news-grid");
- 
+
   news.forEach((news) => {
     const card = document.createElement("div");
     card.className = "news-card";
- 
+
     card.innerHTML = `
       <img src="${news.img}" alt="${news.title}" class="news-image" />
       <h3 class="news-title">${news.title}</h3>
       <p class="news-date">${news.date}</p>
     `;
- 
+
     card.addEventListener("click", () => {
-        window.location.href = `news.html?id=${news.id}`;
+      window.location.href = `news.html?id=${news.id}`;
     });
- 
+
     container.appendChild(card);
   });
 };
- 
+
 const renderNewsDetail = () => {
-    const container = document.querySelector(".news-content");
-    if (!container) return;
- 
-    //Hämta ID från URL-parametern
-    const urlParams = new URLSearchParams(window.location.search);
-    const newsId =urlParams.get("id");
- 
-    // Hitta rätt artikel
-    const newsItem = news.find((n) => n.id === newsId);
- 
-    if (newsItem) {
-        container.innerHTML = `
-            <img src="${newsItem.img}" alt="${newsItem.title}" class"news-image" />
-            <h1 class="news-title">${newsItem.title}</h1>
-            <p class="news-date">${newsItem.date}</p>
-            <p class="news-text">${newsItem.content}</p>
-        `;
-    } else {
-        container.innerHTML = `
-            <p>Artikeln kunde inte hittas.</p>    
-        `;
-    }
+  const container = document.querySelector(".news-content");
+  if (!container) return;
+
+  // Hämta ID från URL-parametern
+  const urlParams = new URLSearchParams(window.location.search);
+  const newsId = urlParams.get("id");
+
+  // Hitta rätt artikel
+  const newsItem = news.find((n) => n.id === newsId);
+
+  if (newsItem) {
+    container.innerHTML = `
+      <img src="${newsItem.img}" alt="${newsItem.title}" class="news-image" />
+      <h1 class="news-title">${newsItem.title}</h1>
+      <p class="news-date">${newsItem.date}</p>
+      <p class="news-text">${newsItem.content}</p>
+    `;
+  } else {
+    container.innerHTML = `
+      <p>Artikeln kunde inte hittas.</p>
+    `;
+  }
 };
 
-const createElement = (event) => {
+const createDateElement = (event) => {
   //Kolla om händelsen har ett slutdatum
   if (event.endDay && event.endMonth) {
-     //Kolla om händelsen är inom samma månad
-     if (event.month === event.endMonth) {
-       // Om samma månad, visa samma månad
-       return`
-          <time class="event-date" datetime="${event.day}-${event.enDay}">
+    //Kolla om händelsen är inom samma månad
+    if (event.month === event.endMonth) {
+      // Om samma månad, visa datum i en ruta
+      return `
+        <time class="event-date" datetime="${event.day}-${event.month}">
+          <div class="day-wrapper">
             <span class="date-day">${event.day}</span>
             <span class="date-separator">-</span>
             <span class="date-day">${event.endDay}</span>
-            <span class="date-month">${event.month}</span>
-          </time>
-        `;
-     } else {
-       return`
-        <time class="event-date" datetime="${event.day}-${event.endDay}">
+          </div>
+          <span class="date-month">${event.month}</span>
+        </time>
+      `;
+    } else {
+      return `
+        <time class="event-date" datetime="${event.day}-${event.month}">
           <span class="date-day">${event.day}</span>
-          <span class="date-month>${event.month}</span>
+          <span class="date-month">${event.month}</span>
         </time>
-        <time class="event-date" datetime="${event.endDay}-${event.endMonth}>
-          <span class="date-day">${event.endDay}</span>
-          <span class="date-month>${event.endMonth}</span>
-        </time>
-        `;
-     }
 
+        <time class="event-date" datetime="${event.endDay}-${event.endMonth}">
+          <span class="date-day">${event.endDay}</span>
+          <span class="date-month">${event.endMonth}</span>
+        </time>
+      `;
+    }
   } else {
     return `
       <time class="event-date" datetime="${event.day}-${event.month}">
         <span class="date-day">${event.day}</span>
-        <span class="date-month>${event.month}</span>
+        <span class="date-month">${event.month}</span>
       </time>
     `;
   }
 };
 
-const renderEvent = () => {
+const renderEvents = () => {
   const container = document.querySelector(".event-list");
 
   //Töm containern först
@@ -215,29 +220,30 @@ const renderEvent = () => {
   const eventsToShow = events.slice(0, shownEvents);
 
   //Loopa igenom och skapa HTML för varje händelse
-  eventsToShow.forEach(event => {
-    const eventElement = document.createElement ("li");
+  eventsToShow.forEach((event) => {
+    const eventElement = document.createElement("li");
     eventElement.className = "event-item";
 
     //Skapa datum-HTML med hjälp av funktion
-    const dateHTML = createDateElement(event)
+    const dateHtml = createDateElement(event);
 
-    eventElement innerHTML = `
-     <article class="event-card">
+    eventElement.innerHTML = `
+      <article class="event-card">
+        <hr />
         <div class="date-wrapper">
-       ${dateHTML}
+          ${dateHtml}
         </div>
-       <section class="event-info">
+        <section class="event-info">
           <header class="event-title-row">
             <h3 class="event-title">${event.title}</h3>
-            <span class"status-circle status-${event.statusColor}" aria.label="Status">
-            </span>
+            <div class="status-circle status-${event.statusColor}" aria-label="Status">
+            </div>
           </header>
           <time class="event-weekday" datetime="${event.weekday}">${event.weekday}</time>
-       </section>
-       <a href="#" class="event-details">Detaljer</a>
-      <hr />
-       </article>
+        </section>
+        <a href="#" class="event-details">Detaljer</a>
+        <hr class="hr"/>
+      </article>
     `;
 
     container.appendChild(eventElement);
@@ -252,15 +258,15 @@ const handleShowMore = () => {
   //Rendera om listan med fler händelser
   renderEvents();
 
-  //Dölj knappen om alla händelser visas 
-  if (shownEvent >= events.length) {
+  //Dölj knappen om alla händelser visas
+  if (shownEvents >= events.length) {
     const btn = document.querySelector(".show-more-btn");
     btn.classList.add("hidden");
   }
 };
 const showMoreBtn = document.querySelector(".show-more-btn");
 if (showMoreBtn) showMoreBtn.addEventListener("click", handleShowMore);
- 
+
 // Kör rätt funktion beroende på vilken sida vi är på
 if (document.querySelector(".news-grid")) renderNews();
 if (document.querySelector(".news-content")) renderNewsDetail();
