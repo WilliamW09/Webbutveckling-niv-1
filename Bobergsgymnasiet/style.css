@@ -70,6 +70,10 @@ a {
   width: 32px;
 }
 
+.news-article {
+  padding: 16px;
+}
+
 .news-grid {
   padding: 16px;
   display: flex;
@@ -88,9 +92,9 @@ a {
 
 .news-image {
   width: 100%;
-  max-width: 350px;
-  max-height: 200px;
+  max-height: 100px;
   object-fit: cover;
+  object-position: center;
   border-radius: 12px;
 }
 
@@ -208,6 +212,34 @@ a {
 
 @media (min-width: 640px) {
   .news-grid {
-    background-color: brown;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: start;
+    align-items: stretch;
+  }
+
+  .news-card {
+    width: 100%;
+    max-width: 300px;
+    flex: 1 1 200px;
+  }
+
+  .news-image {
+    height: 158%;
+  }
+}
+
+@media (min-width: 1280px) {
+  .menu-btn,
+  .mobile-nav
+   {
+    display: none;
+  }
+
+  .desktop-nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
   }
 }
